@@ -35,7 +35,10 @@ def find_best_match(model_images, query_images, dist_type, hist_type, num_bins):
     
     
     #... (your code here)
+    for i,model in enumerate(model_hists):
+        for j ,query in enumerate(query_hists):
 
+            D[i,j] = 0
 
     return best_match, D
 
@@ -47,7 +50,8 @@ def compute_histograms(image_list, hist_type, hist_isgray, num_bins):
 
     # Compute hisgoram for each image and add it at the bottom of image_hist
 
-    #... (your code here)
+    for img in image_list :
+
 
     return image_hist
 

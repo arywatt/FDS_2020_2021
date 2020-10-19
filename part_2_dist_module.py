@@ -56,8 +56,3 @@ def get_dist_by_name(x, y, dist_name):
   else:
     assert False, 'unknown distance: %s'%dist_name
   
-
-
-
-
-s

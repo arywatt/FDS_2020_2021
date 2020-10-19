@@ -127,7 +127,15 @@ def rg_hist(img_color_double, num_bins):
     return hists
 
 
+# to cap value
+def capvalue(value):
+  if value <= -6:
+    return -6
 
+  if value >= 6:
+    return 6
+
+  return value
 
 #  Compute the *joint* histogram of Gaussian partial derivatives of the image in x and y direction
 #  Set sigma to 3.0 and cap the range of derivative values is in the range [-6, 6]
@@ -150,9 +158,12 @@ def dxdy_hist(img_gray, num_bins):
 
 
     for xValue,yValue in zip(np.array(imgDx).flatten(),np.array(imgDy).flatten()):
-        x = -6 + (12.0/255 )*xValue
-        y = -6 + (12.0/255 )*yValue
-        x,y = int(num_bins * (x/12.0)),int(num_bins * (x/12.0))
+        
+        x = capvalue(xValue)
+        y = capvalue(yValue)
+        
+        x,y = int(num_bins * (x/12.0)),int(num_bins * (y/12.0))
+        
         hists[x,y] += 1
 
     hists = hists / np.sum(hists)
