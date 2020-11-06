@@ -83,6 +83,8 @@ def compare_dist_rpc(model_images, query_images, dist_types, hist_type, num_bins
     # legend(dist_types, 'Location', 'Best')
 
     plt.legend(dist_types, loc='best')
+    
+    #could u see my commit?
 
 
 
